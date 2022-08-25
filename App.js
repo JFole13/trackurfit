@@ -1,5 +1,6 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
+import { useFonts } from 'expo-font';
 import {
   StyleSheet,
   Text,
@@ -9,42 +10,41 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
+
+
  
 export default function App() {
+
+  let [fontsLoaded] = useFonts({
+    'Poppins-Regular': require('./assets/fonts/Poppins-Regular.ttf'),
+    'Poppins-Bold' : require('./assets/fonts/Poppins-Bold.ttf'),
+  });
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={require("./assets/ph.png")} />
  
       <StatusBar style="auto" />
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) => setEmail(email)}
-        />
+
+      <View style={styles.logoView}>
+        <Text style={styles.logoText}>TrackUrFit</Text>
+        <Text style={styles.sloganText}>Damn gravy you so vicious you so clean so delicious</Text>
+      </View>
+
+      <View style={styles.loginView}>
+        <TouchableOpacity style={styles.loginButton}>
+          <Text style={styles.loginButtonText}>Log In</Text>
+        </TouchableOpacity>
       </View>
  
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
-          secureTextEntry={true}
-          onChangeText={(password) => setPassword(password)}
-        />
+      <View style={styles.signUpView}>
+        <TouchableOpacity style={styles.signUpButton}>
+          <Text style={styles.signUpButtonText}>Sign Up</Text>
+        </TouchableOpacity>
       </View>
- 
-      <TouchableOpacity>
-        <Text style={styles.forgot_button}>Forgot Password?</Text>
-      </TouchableOpacity>
- 
-      <TouchableOpacity style={styles.loginBtn}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
+
     </View>
   );
 }
@@ -52,44 +52,73 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
- 
-  image: {
-    marginBottom: 40,
-  },
- 
-  inputView: {
-    backgroundColor: "#FFC0CB",
-    borderRadius: 30,
-    width: "70%",
-    height: 45,
-    marginBottom: 20,
- 
+    backgroundColor: "#0DD162",
+    justifyContent: 'flex-end',
     alignItems: "center",
   },
- 
-  TextInput: {
-    height: 50,
-    flex: 1,
-    padding: 10,
-    marginLeft: 20,
+
+  logoView: {
+    width: '100%',
+    height: '20%'
+  },  
+
+  logoText: {
+    color: 'white',
+    fontFamily: 'Poppins-Bold',
+    fontSize: '40',
+    paddingLeft: 22
   },
- 
-  forgot_button: {
-    height: 30,
-    marginBottom: 30,
+
+  sloganText: {
+    color: 'white',
+    fontFamily: 'Poppins-Regular', 
+    fontSize: '15',
+    paddingLeft: 22,
+    paddingRight: 22,
+    paddingTop: 15
   },
- 
-  loginBtn: {
-    width: "80%",
+
+  loginView: {
+    width: '100%',
+    height: '12%',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+
+  signUpView: {
+    width: '100%',
+    height: '20%',
+    alignItems: 'center',
+    justifyContent: 'flex-start'
+  },
+
+  loginButton: {
+    width: "90%",
     borderRadius: 25,
     height: 50,
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 40,
-    backgroundColor: "#FF1493",
+    backgroundColor: "#fff",
   },
+ 
+  signUpButton: {
+    width: "90%",
+    borderRadius: 25,
+    height: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#249254",
+  },
+
+  loginButtonText: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: '19',
+    color: '#0DD162'
+  },
+
+  signUpButtonText: {
+    fontFamily: 'Poppins-Bold',
+    fontSize: '19',
+    color: '#fff'
+  }
 });
