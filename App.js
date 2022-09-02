@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState } from "react";
 import SignInScreen from "./src/screens/SignInScreen";
+import SignUpScreen from "./src/screens/SignUpScreen/SignUpScreen";
 import HomeScreen from "./src/screens/HomeScreen"
 import { useFonts } from 'expo-font';
 import {
