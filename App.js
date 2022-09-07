@@ -30,7 +30,7 @@ export default function App() {
  
   return (
     <View style={styles.root}>
-      <SignInScreen />
+      <HomeScreen />
     </View>
     
   );

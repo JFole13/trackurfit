@@ -8,15 +8,15 @@ const SignInScreen = () => {
     const [password, setPassword] = useState('');
 
     const onSignInPressed = () => {
-        console.log('ur signed in bitch')
+        console.log('ur signed in bitch');
     }
 
     const onForgotPasswordPressed = () => {
-        console.log('you forgot youre fucking password you goddamn moron')
+        console.log('you forgot youre fucking password you goddamn moron');
     }
 
     const onCreateAccountPressed = () => {
-        console.log('whyd u pick log in if you dont have an account')
+        console.log('whyd u pick log in if you dont have an account');
     }
 
     return (

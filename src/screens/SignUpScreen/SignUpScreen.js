@@ -1,11 +1,25 @@
-import React from "react";
+import React, {useState} from "react";
 import { View, Text, SafeAreaView, StyleSheet, Button, TouchableOpacity, StatusBar } from 'react-native'
 import CustomInput from '../../components/CustomInput/CustomInput';
+import AccountButton from "../../components/AccountButton/AccountButton";
 
 const SignUpScreen = () => {
 
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+
+
+    const onCreateAccountPressed = () => {
+        console.log('u created an account bitch');
+    } 
+
+    const onSignInPressed = () => {
+        console.log('why did you pick create account fucker');
+    }
+
     
     return (
         <SafeAreaView style={styles.root}>
@@ -13,15 +27,15 @@ const SignUpScreen = () => {
             <View style={styles.header}>
                 <Text style={styles.headerText}>Create Account</Text>
             </View>
-            <CustomInput />
-            <CustomInput />
-            <CustomInput />
-            <CustomInput />
-            <View style={styles.loginView}>
-                <TouchableOpacity style={styles.loginButton}>
-                    <Text style={styles.loginButtonText}>Sign Up</Text>
-                </TouchableOpacity>
-            </View>
+            <CustomInput placeholder="Username" value={username} setValue={setUsername} />
+            <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+            <CustomInput placeholder="Password" value={password} setValue={setPassword} secureTextEntry={true}/>
+            <CustomInput placeholder="Confirm Password" value={confirmPassword} 
+                         setValue={setConfirmPassword} secureTextEntry={true} />
+            
+            <AccountButton text='Create Account' onPress={onCreateAccountPressed}/>
+            <AccountButton text="Already have an account? Log in" onPress={onSignInPressed} type='TERTIARY_UNDERLINED' />
+
         </SafeAreaView>
     )
 }

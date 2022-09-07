@@ -9,10 +9,21 @@ import {
     Button,
     TouchableOpacity,
   } from "react-native";
+import AccountButton from '../components/AccountButton/AccountButton';
 
 const HomeScreen = () => {
+
+    const onSignInPressed = () => {
+        console.log('ur signed in bitch');
+    }
+
+    const onCreateAccountPressed = () => {
+        console.log('whyd u pick log in if you dont have an account');
+    }
+
+
     return (
-        <View style={styles.container}>
+    <View style={styles.container}>
  
       <StatusBar style="auto" />
 
@@ -21,17 +32,9 @@ const HomeScreen = () => {
         <Text style={styles.sloganText}>Get to the jim cocksucker</Text>
       </View>
 
-      <View style={styles.loginView}>
-        <TouchableOpacity style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Log In</Text>
-        </TouchableOpacity>
-      </View>
- 
-      <View style={styles.signUpView}>
-        <TouchableOpacity style={styles.signUpButton}>
-          <Text style={styles.signUpButtonText}>Sign Up</Text>
-        </TouchableOpacity>
-      </View>
+      <AccountButton text="Log In" onPress={onSignInPressed} containerType="TERTIARY_HOME" 
+                     type="TERTIARY_HOME" textType="TERTIARY_HOME"/>
+      <AccountButton text="Sign Up" onPress={onCreateAccountPressed}/> 
 
     </View>
     )
@@ -47,67 +50,22 @@ const styles = StyleSheet.create({
   
     logoView: {
       width: '100%',
-      height: '20%'
+      flex: 3,
+      justifyContent: 'flex-end',
     },  
   
     logoText: {
       color: 'white',
       fontFamily: 'Poppins-Bold',
       fontSize: '40',
-      paddingLeft: 22
+      paddingLeft: 22,
     },
   
     sloganText: {
       color: 'white',
       fontFamily: 'Poppins-Regular', 
       fontSize: '15',
-      paddingLeft: 22,
-      paddingRight: 22,
-      paddingTop: 15
-    },
-  
-    loginView: {
-      width: '100%',
-      height: '12%',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-  
-    signUpView: {
-      width: '100%',
-      height: '20%',
-      alignItems: 'center',
-      justifyContent: 'flex-start'
-    },
-  
-    loginButton: {
-      width: "90%",
-      borderRadius: 25,
-      height: 50,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#fff",
-    },
-   
-    signUpButton: {
-      width: "90%",
-      borderRadius: 25,
-      height: 50,
-      alignItems: "center",
-      justifyContent: "center",
-      backgroundColor: "#249254",
-    },
-  
-    loginButtonText: {
-      fontFamily: 'Poppins-Bold',
-      fontSize: '19',
-      color: '#0DD162'
-    },
-  
-    signUpButtonText: {
-      fontFamily: 'Poppins-Bold',
-      fontSize: '19',
-      color: '#fff'
+      paddingLeft: 22
     }
   });
 
